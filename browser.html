@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucas Rules | Navegador Privado</title>
+  <style>
+    :root { --bg:#0b1020; --panel:#121a2b; --text:#ecf4ff; --muted:#b7c6db; --primary:#7c9cff; --accent:#7ef0c7; }
+    * { box-sizing:border-box; }
+    html, body { margin:0; padding:0; height:100%; font-family:Arial,Helvetica,sans-serif; color:var(--text); background:linear-gradient(135deg,#0b1020,#101827 45%,#0f172a); }
+    a { color:inherit; text-decoration:none; }
+    .container { width:min(1200px,calc(100% - 2rem)); margin:auto; }
+    header { padding:1rem 0; border-bottom:1px solid #ffffff18; background:#0b1020dd; backdrop-filter:blur(12px); }
+    nav { display:flex; justify-content:space-between; align-items:center; }
+    .brand { font-weight:800; letter-spacing:.08em; text-transform:uppercase; font-size:1.2rem; }
+    .brand span { color:var(--accent); }
+    .back { color:var(--muted); font-size:.9rem; }
+    main { display:flex; flex-direction:column; height:calc(100vh - 80px); padding:2rem 0; }
+    .hero { text-align:center; }
+    .eyebrow { color:var(--accent); text-transform:uppercase; letter-spacing:.08em; font-size:.78rem; font-weight:700; }
+    h1 { font-size:2.5rem; margin:.5rem 0 1rem; }
+    .subtitle { color:var(--muted); font-size:1.05rem; margin-bottom:2rem; }
+    .search-wrapper { display:flex; flex-direction:column; gap:1.5rem; flex-grow:1; justify-content:flex-start; padding-top:2rem; }
+    .search-box { display:flex; gap:.8rem; max-width:700px; margin:0 auto; width:100%; }
+    .search-input { flex:1; padding:1rem 1.5rem; border:1px solid #ffffff20; border-radius:50px; background:#ffffff0d; color:var(--text); font-size:1.1rem; outline:none; transition:all .3s; }
+    .search-input:focus { border-color:var(--accent); box-shadow:0 0 20px rgba(126,240,199,.2); }
+    .search-btn { padding:1rem 2rem; background:linear-gradient(135deg,var(--primary),var(--primary-strong)); color:white; border:none; border-radius:50px; font-weight:700; cursor:pointer; font-size:1rem; transition:all .2s; }
+    .search-btn:hover { transform:translateY(-2px); box-shadow:0 10px 25px rgba(79,124,255,.3); }
+    .privacy-notice { background:rgba(126,240,199,.08); border:1px solid rgba(126,240,199,.2); border-radius:16px; padding:1.5rem; margin-top:2rem; text-align:left; max-width:700px; margin-left:auto; margin-right:auto; }
+    .privacy-notice h3 { color:var(--accent); margin:0 0 .8rem; font-size:1.05rem; }
+    .privacy-notice p { margin:.5rem 0; color:var(--muted); font-size:.95rem; line-height:1.6; }
+    .features { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1.5rem; margin-top:2rem; max-width:700px; margin-left:auto; margin-right:auto; }
+    .feature { background:rgba(124,156,255,.08); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:1.2rem; text-align:center; }
+    .feature-icon { font-size:2rem; margin-bottom:.5rem; }
+    .feature-title { font-weight:700; margin:.5rem 0; }
+    .feature-text { color:var(--muted); font-size:.9rem; }
+    .duckduckgo-credit { color:var(--muted); font-size:.85rem; margin-top:2rem; }
+    .duckduckgo-credit a { color:var(--accent); transition:color .2s; }
+    .duckduckgo-credit a:hover { color:#ffffff; }
+    footer { padding:2rem 0; text-align:center; color:var(--muted); font-size:.9rem; border-top:1px solid #ffffff12; }
+    @media (max-width:768px) { h1 { font-size:1.8rem; } .search-box { flex-direction:column; } }
+  </style>
+</head>
+<body>
+  <header><div class="container"><nav><a class="brand" href="index.html">Lucas<span>Rules</span></a><a class="back" href="index.html">← Volver</a></nav></div></header>
+  
+  <main>
+    <div class="container search-wrapper">
+      <div class="hero">
+        <span class="eyebrow">🔍 Navegador Privado</span>
+        <h1>Busca con Privacidad</h1>
+        <p class="subtitle">Impulsado por DuckDuckGo — Sin rastreo, sin datos vendidos</p>
+      </div>
+
+      <div class="search-box">
+        <input type="text" class="search-input" id="searchInput" placeholder="Busca algo en DuckDuckGo..." autofocus>
+        <button class="search-btn" onclick="performSearch()">Buscar</button>
+      </div>
+
+      <div class="privacy-notice">
+        <h3>🛡️ Tu Privacidad Importa</h3>
+        <p>✓ <strong>Sin rastreo:</strong> DuckDuckGo no rastrea tu historial de búsqueda ni tu IP</p>
+        <p>✓ <strong>Sin cookies de seguimiento:</strong> Navega sin que te sigan</p>
+        <p>✓ <strong>Sin datos vendidos:</strong> Nunca vendemos ni compartimos tus datos</p>
+        <p>✓ <strong>Encriptación:</strong> Todas las búsquedas usan conexión segura HTTPS</p>
+        <p style="margin-top:1rem; color:var(--text);"><strong>Acceso directo a DuckDuckGo:</strong> <a href="https://duckduckgo.com" target="_blank" style="color:var(--accent);">duckduckgo.com ↗</a></p>
+      </div>
+
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">🔐</div>
+          <div class="feature-title">Privacidad Real</div>
+          <div class="feature-text">Sin rastreo de ubicación ni datos personales</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🌍</div>
+          <div class="feature-title">Resultados Globales</div>
+          <div class="feature-text">Acceso a internet completo sin censura</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">⚡</div>
+          <div class="feature-title">Rápido</div>
+          <div class="feature-text">Búsquedas veloces y eficientes</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🔒</div>
+          <div class="feature-title">Seguro</div>
+          <div class="feature-text">Conexión encriptada siempre</div>
+        </div>
+      </div>
+
+      <div class="duckduckgo-credit">
+        <p>Este navegador simple te redirige a <a href="https://duckduckgo.com" target="_blank">DuckDuckGo</a> — el buscador que respeta tu privacidad.</p>
+        <p>Más información: <a href="https://duckduckgo.com/about" target="_blank">Sobre DuckDuckGo</a></p>
+      </div>
+    </div>
+  </main>
+
+  <footer><div class="container">
+    <p>© 2026 Lucas Rules — Navegador privado con DuckDuckGo. Búsquedas seguras sin rastreo.</p>
+  </div></footer>
+
+  <script>
+    function performSearch() {
+      const query = document.getElementById('searchInput').value.trim();
+      if (query) {
+        const duckduckgoUrl = `https://duckduckgo.com/?q=${encodeURIComponent(query)}`;
+        window.open(duckduckgoUrl, '_blank');
+      }
+    }
+
+    document.getElementById('searchInput').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        performSearch();
+      }
+    });
+  </script>
+</body>
+</html>
