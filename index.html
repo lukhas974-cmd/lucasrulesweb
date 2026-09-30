@@ -368,6 +368,82 @@
         margin: 0 auto 1.5rem;
       }
 
+      /* Games Section Styles */
+      .games-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.8rem;
+      }
+
+      .game-card {
+        background: linear-gradient(135deg, rgba(124, 156, 255, 0.08), rgba(126, 240, 199, 0.06));
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        padding: 2rem;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .game-card:hover {
+        transform: translateY(-6px);
+        background: linear-gradient(135deg, rgba(124, 156, 255, 0.12), rgba(126, 240, 199, 0.10));
+        border-color: rgba(126, 240, 199, 0.3);
+        box-shadow: 0 20px 40px rgba(79, 124, 255, 0.15);
+      }
+
+      .game-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .game-card h3 {
+        margin: 0.5rem 0 1rem;
+        font-size: 1.4rem;
+        color: var(--text);
+      }
+
+      .game-card p {
+        margin: 0 0 1.2rem;
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      .game-rules {
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 12px;
+        padding: 1rem;
+        margin-top: 1rem;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      .game-rules strong {
+        display: block;
+        color: var(--text);
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+      }
+
+      .play-btn {
+        display: inline-block;
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        color: white;
+        padding: 0.7rem 1.2rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.2s ease;
+      }
+
+      .play-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(79, 124, 255, 0.25);
+      }
+
       footer {
         padding: 1.5rem 0 3rem;
         color: var(--muted);
@@ -381,7 +457,8 @@
 
         .hero-grid,
         .features,
-        .about {
+        .about,
+        .games-grid {
           grid-template-columns: 1fr;
         }
 
@@ -398,6 +475,7 @@
           <a href="#top" class="brand">Lucas<span>Rules</span></a>
           <div class="nav-links">
             <a href="#features">Servicios</a>
+            <a href="#games">Juegos</a>
             <a href="#about">Sobre mí</a>
             <a href="#contact">Contacto</a>
           </div>
@@ -497,6 +575,345 @@
                 Diseños orientados a conversión para captar leads, clientes y oportunidades.
               </p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="games">
+        <div class="container">
+          <div class="section-heading">
+            <span class="eyebrow">🎮 Diversión</span>
+            <h2>Juegos famosos y populares para disfrutar.</h2>
+            <p>
+              Una colección de los juegos más populares del mundo. Cada uno con sus propias reglas, estrategias y diversión garantizada.
+            </p>
+          </div>
+
+          <div class="games-grid">
+            <!-- 10000 / Farkle -->
+            <div class="game-card">
+              <div class="game-icon">🎲</div>
+              <h3>10,000 (Farkle)</h3>
+              <p>El emocionante juego de dados donde debes llegar a 10,000 puntos sin quebrar.</p>
+              <div class="game-rules">
+                <strong>Reglas básicas:</strong>
+                Lanza 6 dados y forma combinaciones: Escalera (1,2,3,4,5,6)=1500pts, Trío (3 iguales)=100pts×valor.
+                Si no scores, pierdes todo. Gana quien llegue a 10,000.
+              </div>
+              <a class="play-btn" href="#games">Jugar ahora</a>
+            </div>
+
+            <!-- Poker Dice -->
+            <div class="game-card">
+              <div class="game-icon">♠️</div>
+              <h3>Póker con Dados</h3>
+              <p>Combina suerte y estrategia usando dados para hacer las mejores manos de póker.</p>
+              <div class="game-rules">
+                <strong>Reglas básicas:</strong>
+                Lanza 5 dados y forma combinaciones: Full House, Escalera, Póker, Trío.
+                Compite con otros jugadores por la mejor mano de ronda.
+              </div>
+              <a class="play-btn" href="#games">Jugar ahora</a>
+            </div>
+
+            <!-- Blackjack -->
+            <div class="game-card">
+              <div class="game-icon">🃏</div>
+              <h3>Blackjack</h3>
+              <p>El clásico juego de cartas donde debes llegar a 21 sin pasarte.</p>
+              <div class="game-rules">
+                <strong>Reglas básicas:</strong>
+                Consigue cartas hasta alcanzar 21 o lo más cerca posible sin pasarte.
+                Gana si tu mano es mejor que la del dealer. As=1/11, figuras=10.
+              </div>
+              <a class="play-btn" href="#games">Jugar ahora</a>
+            </div>
+
+            <!-- Rummy -->
+            <div class="game-card">
+              <div class="game-icon">🂾</div>
+              <h3>Rummy</h3>
+              <p>Forma sets y secuencias con cartas para reducir tu puntuación a cero.</p>
+              <div class="game-rules">
+                <strong>Reglas básicas:</strong>
+                Forma grupos (3+ cartas iguales) o secuencias (3+ cartas en orden). Descarta y
+                suma la menor puntuación. Gana quien desmuestre primero todos sus grupos.
+              </div>
+              <a class="play-btn" href="#games">Jugar ahora</a>
+            </div>
+
+            <!-- Memory / Matching -->
+            <div class="game-card">
+              <div class="game-icon">🧠</div>
+              <h3>Memoria</h3>
+              <p>Voltea cartas y encuentra pares. Perfecto para poner a prueba tu memoria.</p>
+              <div class="game-rules">
+                <strong>Reglas básicas:</strong>
+                Voltea dos cartas a la vez. Si coinciden, las ganas. Si no, vuelve a voltearlas.
+                Gana quien encuentre más pares cuando se acaben todas las cartas.
+              </div>
+              <a class="play-btn" href="#games">Jugar ahora</a>
+            </div>
+
+            <!-- Snake -->
+            <div class="game-card">
+              <div class="game-icon">🐍</div>
+              <h3>Snake</h3>
+              <p>El clásico juego arcade donde debes guiar la serpiente y comer sin tocarte.</p>
+              <div class="game-rules">
+                <strong>Reglas básicas:</strong>
+                Mueve la serpiente para comer comida sin golpear las paredes ni tu propio cuerpo.
+                Cada alimento comido hace crecer la serpiente. Juega lo máximo posible.
+              </div>
+              <a class="play-btn" href="#games">Jugar ahora</a>
+            </div>
+
+            <!-- Solitaire -->
+            <div class="game-card">
+              <div class="game-icon">🎴</div>
+              <h3>Solitario</h3>
+              <p>Ordena todas las cartas por palo de Ace a King en el juego de un solo jugador clásico.</p>
+              <div class="game-rules">
+                <strong>Reglas básicas:</strong>
+                Construye pilas por palo comenzando con As. Mueve cartas desde la mesa o el mazo.
+                Las cartas en columnas se pueden mover en secuencia descendente de color alterno.
+              </div>
+              <a class="play-btn" href="#games">Jugar ahora</a>
+            </div>
+
+            <!-- Dominoes -->
+            <div class="game-card">
+              <div class="game-icon">🀄</div>
+              <h3>Dominó</h3>
+              <p>El juego clásico donde emparejas fichas de dominó por números coincidentes.</p>
+              <div class="game-rules">
+                <strong>Reglas básicas:</strong>
+                Coloca fichas que coincidan en número con los extremos de la cadena de juego.
+                Quien se queda sin fichas primero gana. Si no puedes jugar, pasa.
+              </div>
+              <a class="play-btn" href="#games">Jugar ahora</a>
+            </div>
+
+            <!-- Tetris -->
+            <div class="game-card">
+              <div class="game-icon">🧱</div>
+              <h3>Tetris</h3>
+              <p>Encaja bloques cayendo en líneas completas para ganar puntos y evitar llenar la pantalla.</p>
+              <div class="game-rules">
+                <strong>Reglas básicas:</strong>
+                Rota y posiciona piezas que caen. Completa líneas horizontales para eliminarlas.
+                Pierdes cuando las piezas llegan a la cima. Gana con la mayor puntuación.
+              </div>
+              <a class="play-btn" href="#games">Jugar ahora</a>
+            </div>
+
+            <!-- Bingo -->
+            <div class="game-card">
+              <div class="game-icon">🅱️</div>
+              <h3>Bingo</h3>
+              <p>Marca números en tu cartilla mientras se cantan. ¡Completa una línea para ganar!</p>
+              <div class="game-rules">
+                <strong>Reglas básicas:</strong>
+                Se cantan números al azar. Marca los que tienes en tu cartilla (5x5 números).
+                Gana quien complete una fila, columna, diagonal o "bingo" (toda la cartilla).
+              </div>
+              <a class="play-btn" href="#games">Jugar ahora</a>
+            </div>
+
+            <!-- Three in a Row -->
+            <div class="game-card">
+              <div class="game-icon">⭕</div>
+              <h3>Tres en Raya</h3>
+              <p>El clásico juego de estrategia para dos. Coloca 3 de tu símbolo en línea.</p>
+              <div class="game-rules">
+                <strong>Reglas básicas:</strong>
+                Jugadores alternan turnos en un tablero 3x3. Marca tu símbolo (X u O).
+                Gana quien consiga 3 en línea (horizontal, vertical o diagonal). Es un empate si se llena.
+              </div>
+              <a class="play-btn" href="#games">Jugar ahora</a>
+            </div>
+
+            <!-- Hangman -->
+            <div class="game-card">
+              <div class="game-icon">🎯</div>
+              <h3>Ahorcado</h3>
+              <p>Adivina la palabra oculta antes de que se completen los intentos fallidos.</p>
+              <div class="game-rules">
+                <strong>Reglas básicas:</strong>
+                Se oculta una palabra con guiones. Adivina letras una por una.
+                Cada error suma una parte del dibujo. Tienes limitado de intentos antes de perder.
+              </div>
+              <a class="play-btn" href="#games">Jugar ahora</a>
+            </div>
+
+            <!-- War Card Game -->
+            <div class="game-card">
+              <div class="game-icon">⚔️</div>
+              <h3>Guerra (Cartas)</h3>
+              <p>El juego más simple del mundo. Comparte cartas y gana con la más alta.</p>
+              <div class="game-rules">
+                <strong>Reglas básicas:</strong>
+                Cada jugador voltea una carta. La más alta gana ambas. En empate, hay "guerra" (3 cartas+1).
+                Gana quien consiga todas las cartas del mazo.
+              </div>
+              <a class="play-btn" href="#games">Jugar ahora</a>
+            </div>
+
+            <!-- Chess -->
+            <div class="game-card">
+              <div class="game-icon">♟️</div>
+              <h3>Ajedrez</h3>
+              <p>El juego de estrategia más antiguo del mundo. Mueve tus piezas y derrota al rey contrario.</p>
+              <div class="game-rules">
+                <strong>Reglas básicas:</strong>
+                Cada pieza se mueve diferente. Objetivo: dar jaque mate al rey adversario.
+                Peones avanzan 1 casilla, Torres se mueven horizontalmente, Alfiles en diagonal, etc.
+              </div>
+              <a class="play-btn" href="#games">Jugar ahora</a>
+            </div>
+
+            <!-- Checkers -->
+            <div class="game-card">
+              <div class="game-icon">🎲</div>
+              <h3>Damas</h3>
+              <p>Captura las fichas del oponente saltando sobre ellas en un tablero 8x8.</p>
+              <div class="game-rules">
+                <strong>Reglas básicas:</strong>
+                Mueve diagonalmente. Salta sobre fichas enemigas para capturarlas.
+                Llega a la última fila para convertirte en reina. Gana quien capture todas las fichas.
+              </div>
+              <a class="play-btn" href="#games">Jugar ahora</a>
+            </div>
+
+            <!-- Go Fish -->
+            <div class="game-card">
+              <div class="game-icon">🐟</div>
+              <h3>Go Fish</h3>
+              <p>Forma sets de 4 cartas iguales pidiendo a otros jugadores en este juego clásico familiar.</p>
+              <div class="game-rules">
+                <strong>Reglas básicas:</strong>
+                Pide cartas a otros jugadores para completar sets de 4 del mismo valor.
+                Si nadie tiene la carta, vas a pescar del mazo. Gana quien complete más sets.
+              </div>
+              <a class="play-btn" href="#games">Jugar ahora</a>
+            </div>
+
+            <!-- Crazy Eights -->
+            <div class="game-card">
+              <div class="game-icon">8️⃣</div>
+              <h3>Crazy Eights</h3>
+              <p>Deshazte de todas tus cartas jugando cartas del mismo palo o valor.</p>
+              <div class="game-rules">
+                <strong>Reglas básicas:</strong>
+                Juega cartas que coincidan en palo o número con la del mazo. Los 8 son comodines.
+                Si no puedes jugar, toma una carta. Gana quien se quede sin cartas primero.
+              </div>
+              <a class="play-btn" href="#games">Jugar ahora</a>
+            </div>
+
+            <!-- Minesweeper -->
+            <div class="game-card">
+              <div class="game-icon">💣</div>
+              <h3>Buscaminas</h3>
+              <p>Revela celdas sin pisar minas en este clásico juego de lógica y estrategia.</p>
+              <div class="game-rules">
+                <strong>Reglas básicas:</strong>
+                Abre celdas evitando minas. Los números indican minas adyacentes.
+                Marca celdas sospechosas con banderas. Gana si abres todas las celdas seguras.
+              </div>
+              <a class="play-btn" href="#games">Jugar ahora</a>
+            </div>
+
+            <!-- Pac-Man -->
+            <div class="game-card">
+              <div class="game-icon">👻</div>
+              <h3>Pac-Man</h3>
+              <p>Come todos los puntos del laberinto mientras evitas a los fantasmas perseguidores.</p>
+              <div class="game-rules">
+                <strong>Reglas básicas:</strong>
+                Navega a través de laberintos comiendo puntos. Evita fantasmas de colores.
+                Come power-ups para invertir los roles. Completa niveles comiendo todos los puntos.
+              </div>
+              <a class="play-btn" href="#games">Jugar ahora</a>
+            </div>
+
+            <!-- Flappy Bird -->
+            <div class="game-card">
+              <div class="game-icon">🐦</div>
+              <h3>Flappy Bird</h3>
+              <p>Toca para volar y evita obstáculos en este juego casual super adictivo.</p>
+              <div class="game-rules">
+                <strong>Reglas básicas:</strong>
+                Toca o presiona para hacer que el pájaro salte. Evita tuberías y obstáculos.
+                Gana puntos cada vez que pasas un obstáculo. ¿Cuál es tu puntuación máxima?
+              </div>
+              <a class="play-btn" href="#games">Jugar ahora</a>
+            </div>
+
+            <!-- 2048 -->
+            <div class="game-card">
+              <div class="game-icon">🎮</div>
+              <h3>2048</h3>
+              <p>Desliza fichas para combinarlas y alcanzar el número mágico 2048.</p>
+              <div class="game-rules">
+                <strong>Reglas básicas:</strong>
+                Desliza fichas en cualquier dirección para combinar números iguales.
+                Dos fichas iguales se fusionan en una con su suma. Objetivo: crear una ficha 2048.
+              </div>
+              <a class="play-btn" href="#games">Jugar ahora</a>
+            </div>
+
+            <!-- Dino Run (Chrome) -->
+            <div class="game-card">
+              <div class="game-icon">🦖</div>
+              <h3>Dino Run</h3>
+              <p>Corre como un dinosaurio y salta sobre obstáculos en este juego offline.</p>
+              <div class="game-rules">
+                <strong>Reglas básicas:</strong>
+                Presiona espacio o toca para saltar. Evita cactus y obstáculos.
+                La velocidad aumenta gradualmente. ¿Cuánto tiempo puedes sobrevivir?
+              </div>
+              <a class="play-btn" href="#games">Jugar ahora</a>
+            </div>
+
+            <!-- Pokemon Go Concept -->
+            <div class="game-card">
+              <div class="game-icon">🎯</div>
+              <h3>Aventuras Pokémon</h3>
+              <p>Captura criaturas, entrena y lucha en este mundo interactivo de aventuras.</p>
+              <div class="game-rules">
+                <strong>Reglas básicas:</strong>
+                Explora y captura criaturas con pokébolas. Entrena tu equipo de Pokémon.
+                Lucha contra otros entrenadores en gimnasios. Completa tu Pokédex capturando todos.
+              </div>
+              <a class="play-btn" href="#games">Jugar ahora</a>
+            </div>
+
+            <!-- Sudoku -->
+            <div class="game-card">
+              <div class="game-icon">🔢</div>
+              <h3>Sudoku</h3>
+              <p>Completa la grilla 9x9 con números del 1-9 sin repetir en filas, columnas o cajas.</p>
+              <div class="game-rules">
+                <strong>Reglas básicas:</strong>
+                Rellena la grilla 9x9 con números 1-9. Cada fila, columna y caja 3x3 debe tener 1-9 sin repetir.
+                Usa lógica y deducción. Múltiples niveles de dificultad disponibles.
+              </div>
+              <a class="play-btn" href="#games">Jugar ahora</a>
+            </div>
+
+            <!-- Tic-Tac-Toe Variations -->
+            <div class="game-card">
+              <div class="game-icon">⚡</div>
+              <h3>Conecta 4</h3>
+              <p>Deja caer fichas y alinea 4 del mismo color en un tablero vertical.</p>
+              <div class="game-rules">
+                <strong>Reglas básicas:</strong>
+                Jugadores alternan dejando caer fichas en columnas. Las fichas caen hasta el fondo.
+                Gana quien alinee 4 fichas horizontalmente, verticalmente o diagonalmente.
+              </div>
+              <a class="play-btn" href="#games">Jugar ahora</a>
+            </div>
           </div>
         </div>
       </section>
