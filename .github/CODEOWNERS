@@ -1,0 +1,11 @@
+* @lukhas974-cmd
+
+# Protect critical repo files
+/.github/ @lukhas974-cmd
+/SECURITY.md @lukhas974-cmd
+/FIREWALL.md @lukhas974-cmd
+/.htaccess @lukhas974-cmd
+/nginx.conf.example @lukhas974-cmd
+/index.html @lukhas974-cmd
+/browser.html @lukhas974-cmd
+/games.html @lukhas974-cmd
