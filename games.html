@@ -3,82 +3,196 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lucas Rules | GN Math & Top Games</title>
+  <title>Lucas Rules | Catálogo Completo de Juegos</title>
   <style>
     :root { --bg:#0b1020; --panel:#121a2b; --text:#ecf4ff; --muted:#b7c6db; --primary:#7c9cff; --accent:#7ef0c7; }
     * { box-sizing:border-box; }
     body { margin:0; font-family:Arial,Helvetica,sans-serif; color:var(--text); background:linear-gradient(135deg,#0b1020,#101827 45%,#0f172a); line-height:1.5; }
     a { color:inherit; text-decoration:none; }
-    .container { width:min(1180px,calc(100% - 2rem)); margin:auto; }
+    .container { width:min(1280px,calc(100% - 2rem)); margin:auto; }
     header { padding:1rem 0; border-bottom:1px solid #ffffff18; position:sticky; top:0; background:#0b1020dd; backdrop-filter:blur(12px); z-index:2; }
     nav { display:flex; justify-content:space-between; align-items:center; gap:1rem; }
-    .brand { font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+    .brand { font-weight:800; letter-spacing:.08em; text-transform:uppercase; font-size:1.2rem; }
     .brand span { color:var(--accent); }
-    .back { color:var(--muted); }
+    .back { color:var(--muted); font-size:.9rem; }
     .hero { padding:4rem 0 2rem; }
     .eyebrow { color:var(--accent); text-transform:uppercase; letter-spacing:.08em; font-size:.78rem; font-weight:700; }
-    h1 { font-size:clamp(2.4rem,6vw,5rem); line-height:1.05; margin:.7rem 0 1rem; }
-    .hero p { color:var(--muted); max-width:700px; font-size:1.08rem; }
+    h1 { font-size:clamp(2.2rem,5vw,4rem); line-height:1.05; margin:.7rem 0 1rem; }
+    .hero p { color:var(--muted); max-width:800px; font-size:1rem; }
     .source-links { display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1.5rem; }
-    .source-links a { padding:.7rem 1rem; border:1px solid #ffffff20; border-radius:999px; background:#ffffff08; }
+    .source-links a { padding:.6rem .9rem; border:1px solid #ffffff20; border-radius:999px; background:#ffffff08; font-size:.9rem; }
     .source-links a:hover { border-color:var(--accent); }
     section { padding:2.5rem 0; }
-    h2 { font-size:clamp(1.8rem,3vw,2.8rem); margin:0 0 1.5rem; }
-    .label { color:var(--muted); margin:-1rem 0 1.5rem; }
-    .games { display:grid; grid-template-columns:repeat(auto-fit,minmax(245px,1fr)); gap:1rem; }
-    .game { padding:1.35rem; border:1px solid #ffffff14; border-radius:18px; background:linear-gradient(145deg,#ffffff0d,#ffffff04); transition:transform .2s,border-color .2s; }
-    .game:hover { transform:translateY(-4px); border-color:#7ef0c766; }
-    .icon { font-size:2.3rem; }
-    h3 { margin:.6rem 0 .35rem; }
-    .game p { color:var(--muted); margin:.35rem 0 1rem; font-size:.94rem; }
-    .tag { display:inline-block; padding:.25rem .55rem; border-radius:999px; background:#7c9cff22; color:#dfe8ff; font-size:.75rem; }
-    footer { padding:3rem 0; text-align:center; color:var(--muted); }
+    h2 { font-size:clamp(1.7rem,3vw,2.4rem); margin:0 0 .5rem; }
+    .section-info { color:var(--muted); margin:0 0 1.5rem; font-size:.95rem; }
+    .games { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:.8rem; }
+    .game { padding:1.2rem; border:1px solid #ffffff14; border-radius:16px; background:linear-gradient(145deg,#ffffff0d,#ffffff04); transition:all .2s; }
+    .game:hover { transform:translateY(-3px); border-color:#7ef0c766; background:linear-gradient(145deg,#ffffff12,#ffffff06); }
+    .icon { font-size:2rem; margin-bottom:.4rem; }
+    .game h3 { margin:.5rem 0 .25rem; font-size:.95rem; }
+    .game p { color:var(--muted); margin:.25rem 0 .6rem; font-size:.85rem; line-height:1.3; }
+    .tags { display:flex; flex-wrap:wrap; gap:.3rem; }
+    .tag { display:inline-block; padding:.2rem .4rem; border-radius:999px; background:#7c9cff22; color:#dfe8ff; font-size:.7rem; }
+    .count { color:var(--muted); font-size:.9rem; margin-bottom:1rem; }
+    footer { padding:2.5rem 0; text-align:center; color:var(--muted); font-size:.9rem; border-top:1px solid #ffffff12; }
+    @media (max-width:768px) { .games { grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); } .game { padding:.9rem; } }
   </style>
 </head>
 <body>
-  <header><div class="container"><nav><a class="brand" href="index.html">Lucas<span>Rules</span></a><a class="back" href="index.html">← Volver al inicio</a></nav></div></header>
+  <header><div class="container"><nav><a class="brand" href="index.html">Lucas<span>Rules</span></a><a class="back" href="index.html">← Volver</a></nav></div></header>
   <main>
     <div class="container hero">
-      <span class="eyebrow">🎮 Nuevos juegos</span>
-      <h1>Juegos de GN Math y Top Games</h1>
-      <p>Una selección de juegos casuales, arcade, puzzles, deportes y carreras inspirada en los catálogos de GN Math y TopGames.gg. Usa los enlaces oficiales para jugar a cada título.</p>
-      <div class="source-links"><a href="https://www.gn-math.net/" target="_blank" rel="noopener noreferrer">Visitar GN Math ↗</a><a href="https://gn-maths.com/" target="_blank" rel="noopener noreferrer">Visitar GN Maths ↗</a><a href="https://topgames.gg/" target="_blank" rel="noopener noreferrer">Visitar TopGames.gg ↗</a></div>
+      <span class="eyebrow">🎮 Catálogo Completo</span>
+      <h1>Todos los Juegos: GN Math + Top Games</h1>
+      <p>Más de 100 juegos casuales, arcade, puzzles, deportes, carreras y simulaciones. Accede a cada plataforma para jugar directamente en tu navegador. Sin descargas, sin instalaciones.</p>
+      <div class="source-links"><a href="https://www.gn-math.net/" target="_blank">📌 GN Math</a><a href="https://gn-maths.com/" target="_blank">📌 GN Maths</a><a href="https://topgames.gg/" target="_blank">📌 TopGames.gg</a></div>
     </div>
 
-    <section><div class="container"><h2>GN Math picks</h2><p class="label">Puzzles, arcade, carreras y deportes para partidas rápidas.</p><div class="games">
-      <article class="game"><div class="icon">💰</div><h3>Handless Millionaire</h3><span class="tag">Arcade</span><p>Supera desafíos de precisión y riesgo para conseguir el premio.</p></article>
-      <article class="game"><div class="icon">🌱</div><h3>Growmi</h3><span class="tag">Puzzle</span><p>Resuelve niveles usando movimientos inteligentes y creatividad.</p></article>
-      <article class="game"><div class="icon">🤼</div><h3>Drunken Wrestlers</h3><span class="tag">Acción</span><p>Combates físicos divertidos con controles fáciles de aprender.</p></article>
-      <article class="game"><div class="icon">🧟</div><h3>Zombie Dying Survival Days</h3><span class="tag">Supervivencia</span><p>Sobrevive a oleadas de zombis y administra tus recursos.</p></article>
-      <article class="game"><div class="icon">🔢</div><h3>2048 X2 Merge Blocks</h3><span class="tag">Lógica</span><p>Combina bloques numéricos y alcanza la puntuación más alta.</p></article>
-      <article class="game"><div class="icon">🐶</div><h3>Save The Doge 2</h3><span class="tag">Puzzle</span><p>Dibuja defensas para proteger al perro de los peligros.</p></article>
-      <article class="game"><div class="icon">🏎️</div><h3>Mr Racer Car Racing</h3><span class="tag">Carreras</span><p>Compite a toda velocidad, esquiva tráfico y supera rivales.</p></article>
-      <article class="game"><div class="icon">🏈</div><h3>4th And Goal 2022</h3><span class="tag">Deportes</span><p>Juega partidos rápidos de fútbol americano y consigue touchdowns.</p></article>
-      <article class="game"><div class="icon">💣</div><h3>Bomb It</h3><span class="tag">Arcade</span><p>Coloca bombas, rompe obstáculos y vence a tus oponentes.</p></article>
-      <article class="game"><div class="icon">🐧</div><h3>Penguin Diner 2</h3><span class="tag">Gestión</span><p>Atiende mesas, sirve pedidos y mejora tu restaurante.</p></article>
-      <article class="game"><div class="icon">🏉</div><h3>Retro Bowl</h3><span class="tag">Deportes</span><p>Gestiona tu equipo y juega partidos con estilo retro.</p></article>
-      <article class="game"><div class="icon">🐠</div><h3>Fish Love</h3><span class="tag">Puzzle</span><p>Ayuda a los peces a reunirse resolviendo cada nivel.</p></article>
-    </div></div></section>
+    <!-- GN MATH GAMES -->
+    <section><div class="container">
+      <h2>🎯 GN Math - Juegos Clásicos & Populares</h2>
+      <p class="section-info">Más de 1000 juegos en categorías: Acción, Carreras, Puzzles, Deportes, Arcade y Matemáticas</p>
+      
+      <h3 style="color:#7ef0c7; margin-top:2rem; margin-bottom:.8rem; font-size:1.1rem;">Acción</h3>
+      <div class="games">
+        <div class="game"><div class="icon">🤼</div><h3>Drunken Wrestlers</h3><p>Combates divertidos con física</p><div class="tags"><span class="tag">Acción</span></div></div>
+        <div class="game"><div class="icon">🧟</div><h3>Zombie Dying Survival</h3><p>Sobrevive a zombis</p><div class="tags"><span class="tag">Supervivencia</span></div></div>
+        <div class="game"><div class="icon">💣</div><h3>Bomb It 4</h3><p>Coloca bombas y vence</p><div class="tags"><span class="tag">Arcade</span></div></div>
+        <div class="game"><div class="icon">💣</div><h3>Bomb It 6</h3><p>Versión mejorada Bomb It</p><div class="tags"><span class="tag">Arcade</span></div></div>
+        <div class="game"><div class="icon">🛟</div><h3>Rescue Rift</h3><p>Rescata en tiempos difíciles</p><div class="tags"><span class="tag">Acción</span></div></div>
+        <div class="game"><div class="icon">🎯</div><h3>Squid Sniper</h3><p>Francotiradores arcade</p><div class="tags"><span class="tag">Arcade</span></div></div>
+      </div>
 
-    <section><div class="container"><h2>Top Games picks</h2><p class="label">Juegos virales y casuales para disfrutar en el navegador.</p><div class="games">
-      <article class="game"><div class="icon">⌨️</div><h3>Speed Keyboard Escape</h3><span class="tag">Habilidad</span><p>Escribe rápido y escapa antes de que se acabe el tiempo.</p></article>
-      <article class="game"><div class="icon">🥚</div><h3>Steal An Egg</h3><span class="tag">Casual</span><p>Completa retos rápidos y consigue el huevo sin ser descubierto.</p></article>
-      <article class="game"><div class="icon">🔫</div><h3>GunSpin</h3><span class="tag">Arcade</span><p>Dispara para mantenerte en el aire y llegar cada vez más lejos.</p></article>
-      <article class="game"><div class="icon">🔷</div><h3>Shape Rush</h3><span class="tag">Reflejos</span><p>Cambia de forma a tiempo para superar obstáculos.</p></article>
-      <article class="game"><div class="icon">🏹</div><h3>Bowmasters</h3><span class="tag">Acción</span><p>Calcula el ángulo y la fuerza para acertar tus disparos.</p></article>
-      <article class="game"><div class="icon">🚗</div><h3>BuildNow GG</h3><span class="tag">Acción</span><p>Construye, apunta y compite en partidas rápidas.</p></article>
-      <article class="game"><div class="icon">⚽</div><h3>Penalty Shooters 2</h3><span class="tag">Deportes</span><p>Marca penaltis y ataja los lanzamientos del rival.</p></article>
-      <article class="game"><div class="icon">🚙</div><h3>Cars Arena</h3><span class="tag">Carreras</span><p>Conduce con cuidado y deja fuera de la arena a tus rivales.</p></article>
-      <article class="game"><div class="icon">🚲</div><h3>Airborne BMX</h3><span class="tag">Deportes</span><p>Realiza trucos y aterriza con precisión en pistas extremas.</p></article>
-      <article class="game"><div class="icon">🛹</div><h3>Happy Wheels</h3><span class="tag">Física</span><p>Supera circuitos llenos de trampas usando vehículos extraños.</p></article>
-      <article class="game"><div class="icon">🐾</div><h3>Ride A Pet</h3><span class="tag">Casual</span><p>Explora, corre y diviértete montando criaturas fantásticas.</p></article>
-      <article class="game"><div class="icon">🥷</div><h3>Stealth Master</h3><span class="tag">Acción</span><p>Muévete sin ser visto y completa misiones de infiltración.</p></article>
-      <article class="game"><div class="icon">🌲</div><h3>99 Nights in the Forest</h3><span class="tag">Supervivencia</span><p>Explora un bosque peligroso y sobrevive el mayor número de noches.</p></article>
-      <article class="game"><div class="icon">🥊</div><h3>Flip Duel</h3><span class="tag">Arcade</span><p>Controla tus saltos y supera a tu rival en duelos rápidos.</p></article>
-      <article class="game"><div class="icon">🎯</div><h3>Kick The Buddy</h3><span class="tag">Casual</span><p>Experimenta con objetos y desafíos en un sandbox de física.</p></article>
-      <article class="game"><div class="icon">🧱</div><h3>Blockader</h3><span class="tag">Puzzle</span><p>Coloca bloques y encuentra la mejor estrategia para avanzar.</p></article>
-    </div></div></section>
+      <h3 style="color:#7ef0c7; margin-top:2rem; margin-bottom:.8rem; font-size:1.1rem;">Carreras & Conducción</h3>
+      <div class="games">
+        <div class="game"><div class="icon">🏎️</div><h3>Mr Racer Car Racing</h3><p>Carreras rápidas intensas</p><div class="tags"><span class="tag">Carreras</span></div></div>
+        <div class="game"><div class="icon">🚗</div><h3>City Car Stunt Master</h3><p>Conducción con acrobacias</p><div class="tags"><span class="tag">Carreras</span></div></div>
+        <div class="game"><div class="icon">🚗</div><h3>Traffic Tour</h3><p>Evita tráfico inteligentemente</p><div class="tags"><span class="tag">Carreras</span></div></div>
+        <div class="game"><div class="icon">🕵️</div><h3>Sniper Code 2</h3><p>Misiones de infiltración</p><div class="tags"><span class="tag">Acción</span></div></div>
+        <div class="game"><div class="icon">👁️</div><h3>We Become What We Behold</h3><p>Juego narrativo único</p><div class="tags"><span class="tag">Simulación</span></div></div>
+      </div>
+
+      <h3 style="color:#7ef0c7; margin-top:2rem; margin-bottom:.8rem; font-size:1.1rem;">Puzzles & Lógica</h3>
+      <div class="games">
+        <div class="game"><div class="icon">💰</div><h3>Handless Millionaire</h3><p>Desafíos de precisión</p><div class="tags"><span class="tag">Puzzle</span></div></div>
+        <div class="game"><div class="icon">🌱</div><h3>Growmi</h3><p>Resuelve creativamente</p><div class="tags"><span class="tag">Puzzle</span></div></div>
+        <div class="game"><div class="icon">🔢</div><h3>2048 X2 Merge Blocks</h3><p>Combina números</p><div class="tags"><span class="tag">Lógica</span></div></div>
+        <div class="game"><div class="icon">🐶</div><h3>Save The Doge 2</h3><p>Dibuja defensas</p><div class="tags"><span class="tag">Puzzle</span></div></div>
+        <div class="game"><div class="icon">🏛️</div><h3>Disaster Arena</h3><p>Estrategia en caos</p><div class="tags"><span class="tag">Simulación</span></div></div>
+        <div class="game"><div class="icon">🎲</div><h3>Rps Exclusive</div><p>Piedra, Papel, Tijera avanzado</p><div class="tags"><span class="tag">Estrategia</span></div></div>
+        <div class="game"><div class="icon">🧩</div><h3>Merge Dice</h3><p>Combina dados estratégicamente</p><div class="tags"><span class="tag">Puzzle</span></div></div>
+        <div class="game"><div class="icon">⬡</div><h3>Hex-2048</h3><p>2048 en hexágonos</p><div class="tags"><span class="tag">Lógica</span></div></div>
+        <div class="game"><div class="icon">⚪</div><h3>Ball 2048</h3><p>2048 con bolas</p><div class="tags"><span class="tag">Puzzle</span></div></div>
+        <div class="game"><div class="icon">🔗</div><h3>Merge Numbers</h3><p>Fusiona números</p><div class="tags"><span class="tag">Lógica</span></div></div>
+        <div class="game"><div class="icon">🔢</div><h3>2048 Ball Buster</h3><p>2048 shooter</p><div class="tags"><span class="tag">Arcade</span></div></div>
+        <div class="game"><div class="icon">➕</div><h3>Join Numbers</h3><p>Une números únicos</p><div class="tags"><span class="tag">Puzzle</span></div></div>
+        <div class="game"><div class="icon">🎯</div><h3>Numbers Match!</h3><p>Empareja números</p><div class="tags"><span class="tag">Puzzle</span></div></div>
+        <div class="game"><div class="icon">🔢</div><h3>Sudoku</h3><p>Clásico puzzle numérico</p><div class="tags"><span class="tag">Lógica</span></div></div>
+        <div class="game"><div class="icon">🎃</div><h3>Pumpkin Weighing</h3><p>Halloween matemático</p><div class="tags"><span class="tag">Lógica</span></div></div>
+        <div class="game"><div class="icon">➗</div><h3>Correct Math</h3><p>Resuelve ecuaciones</p><div class="tags"><span class="tag">Matemáticas</span></div></div>
+        <div class="game"><div class="icon">🔢</div><h3>15 Puzzle Collect</h3><p>Clásico puzzle números</p><div class="tags"><span class="tag">Lógica</span></div></div>
+        <div class="game"><div class="icon">🧱</div><h3>Wood Block Journey</h3><p>Coloca bloques madera</p><div class="tags"><span class="tag">Puzzle</span></div></div>
+        <div class="game"><div class="icon">⬡</div><h3>Hexa Block Puzzle</h3><p>Hexágonos y bloques</p><div class="tags"><span class="tag">Puzzle</span></div></div>
+        <div class="game"><div class="icon">💥</div><h3>Block Blast</h3><p>Explota bloques</p><div class="tags"><span class="tag">Puzzle</span></div></div>
+        <div class="game"><div class="icon">🔮</div><h3>Marbles Sorting</h3><p>Ordena canicas</p><div class="tags"><span class="tag">Puzzle</span></div></div>
+        <div class="game"><div class="icon">🫧</div><h3>Bubble Shooter</h3><p>Dispara burbujas</p><div class="tags"><span class="tag">Arcade</span></div></div>
+        <div class="game"><div class="icon">👑</div><h3>Save the Masters</h3><p>Rescata maestros</p><div class="tags"><span class="tag">Puzzle</span></div></div>
+        <div class="game"><div class="icon">🔥</div><h3>Matches Puzzle</h3><p>Mueve fósforos</p><div class="tags"><span class="tag">Lógica</span></div></div>
+        <div class="game"><div class="icon">🐠</div><h3>Fish Love</h3><p>Reúne peces</p><div class="tags"><span class="tag">Puzzle</span></div></div>
+      </div>
+
+      <h3 style="color:#7ef0c7; margin-top:2rem; margin-bottom:.8rem; font-size:1.1rem;">Deportes</h3>
+      <div class="games">
+        <div class="game"><div class="icon">🏈</div><h3>4th And Goal 2022</h3><p>Fútbol americano</p><div class="tags"><span class="tag">Deportes</span></div></div>
+        <div class="game"><div class="icon">🥊</div><h3>Ultimate Boxing</h3><p>Boxeo profesional</p><div class="tags"><span class="tag">Deportes</span></div></div>
+        <div class="game"><div class="icon">🏉</div><h3>Retro Bowl</h3><p>Fútbol estilo retro</p><div class="tags"><span class="tag">Deportes</span></div></div>
+        <div class="game"><div class="icon">🤼</div><h3>Wrassling</h3><p>Lucha libre arcade</p><div class="tags"><span class="tag">Deportes</span></div></div>
+        <div class="game"><div class="icon">🐧</div><h3>Penguin Diner 2</h3><p>Gestiona restaurante</p><div class="tags"><span class="tag">Gestión</span></div></div>
+      </div>
+
+      <h3 style="color:#7ef0c7; margin-top:2rem; margin-bottom:.8rem; font-size:1.1rem;">Matemáticas & Geometría</h3>
+      <div class="games">
+        <div class="game"><div class="icon">🌈</div><h3>Geometry Dash Math</h3><p>Saltos geométricos</p><div class="tags"><span class="tag">Matemáticas</span></div></div>
+        <div class="game"><div class="icon">📐</div><h3>Math Whizz</h3><p>Experto matemático</p><div class="tags"><span class="tag">Matemáticas</span></div></div>
+        <div class="game"><div class="icon">➡️</div><h3>Geometry Arrow</h3><p>Flechas geométricas</p><div class="tags"><span class="tag">Geometría</span></div></div>
+        <div class="game"><div class="icon">⬆️</div><h3>Geometry Jump</h3><p>Salta geometría</p><div class="tags"><span class="tag">Geometría</span></div></div>
+        <div class="game"><div class="icon">🌊</div><h3>Geometry Vibes</h3><p>Ritmo geométrico</p><div class="tags"><span class="tag">Geometría</span></div></div>
+        <div class="game"><div class="icon">👑</div><h3>Math King</h3><p>Rey de las matemáticas</p><div class="tags"><span class="tag">Matemáticas</span></div></div>
+        <div class="game"><div class="icon">🆕</div><h3>Noob Geometry Dash</h3><p>Principiante geométrico</p><div class="tags"><span class="tag">Geometría</span></div></div>
+        <div class="game"><div class="icon">👥</div><h3>2 Player Math</h3><p>Matemáticas en pareja</p><div class="tags"><span class="tag">Matemáticas</span></div></div>
+        <div class="game"><div class="icon">⚔️</div><h3>Geometry Rash Challenge</h3><p>Desafío geométrico rápido</p><div class="tags"><span class="tag">Geometría</span></div></div>
+        <div class="game"><div class="icon">🧠</div><h3>Math Nerd</h3><p>Experto en números</p><div class="tags"><span class="tag">Matemáticas</span></div></div>
+      </div>
+    </div></section>
+
+    <!-- TOP GAMES GAMES -->
+    <section><div class="container">
+      <h2>🌟 TopGames.gg - Juegos Virales & Trending</h2>
+      <p class="section-info">Juegos populares: Acción, Aventura, Conducción, Horror, Plataformas, Puzzles, Disparos, Simulación, Deportes y Estrategia</p>
+      
+      <div class="games">
+        <div class="game"><div class="icon">⌨️</div><h3>Speed Keyboard Escape</h3><p>Escribe rápido</p><div class="tags"><span class="tag">Habilidad</span></div></div>
+        <div class="game"><div class="icon">🥚</div><h3>Steal An Egg</h3><p>Roba sin ser visto</p><div class="tags"><span class="tag">Casual</span></div></div>
+        <div class="game"><div class="icon">🔫</div><h3>GunSpin</h3><p>Dispara y vuela</p><div class="tags"><span class="tag">Arcade</span></div></div>
+        <div class="game"><div class="icon">🔷</div><h3>Shape Rush</h3><p>Cambia de forma</p><div class="tags"><span class="tag">Reflejos</span></div></div>
+        <div class="game"><div class="icon">⚔️</div><h3>Shadow Fight 2</h3><p>Pelea ninja</p><div class="tags"><span class="tag">Acción</span></div></div>
+        <div class="game"><div class="icon">🚀</div><h3>RocketGoal.io</h3><p>Fútbol cohetes</p><div class="tags"><span class="tag">Deportes</span></div></div>
+        <div class="game"><div class="icon">🏹</div><h3>Bowmasters Archery</h3><p>Arquería de precisión</p><div class="tags"><span class="tag">Deportes</span></div></div>
+        <div class="game"><div class="icon">🚗</div><h3>BuildNow GG</h3><p>Construye y combate</p><div class="tags"><span class="tag">Acción</span></div></div>
+        <div class="game"><div class="icon">⚽</div><h3>Penalty Shooters 2</h3><p>Penaltis de fútbol</p><div class="tags"><span class="tag">Deportes</span></div></div>
+        <div class="game"><div class="icon">🎮</div><h3>Flip Or Fail</h3><p>Salta o fracasa</p><div class="tags"><span class="tag">Casual</span></div></div>
+        <div class="game"><div class="icon">🎯</div><h3>Pixel Path</h3><p>Camino de píxeles</p><div class="tags"><span class="tag">Puzzle</span></div></div>
+        <div class="game"><div class="icon">🚙</div><h3>Cars Arena</h3><p>Arena de autos</p><div class="tags"><span class="tag">Carreras</span></div></div>
+        <div class="game"><div class="icon">🚲</div><h3>Airborne BMX</h3><p>Trucos en bicicleta</p><div class="tags"><span class="tag">Deportes</span></div></div>
+        <div class="game"><div class="icon">🛹</div><h3>Happy Wheels</h3><p>Física extrema</p><div class="tags"><span class="tag">Física</span></div></div>
+        <div class="game"><div class="icon">💰</div><h3>BLOODMONEY!</h3><p>Dinero y acción</p><div class="tags"><span class="tag">Acción</span></div></div>
+        <div class="game"><div class="icon">🐾</div><h3>Ride A Pet</h3><p>Monta criaturas</p><div class="tags"><span class="tag">Casual</span></div></div>
+        <div class="game"><div class="icon">🥷</div><h3>Stealth Master</h3><p>Maestro del sigilo</p><div class="tags"><span class="tag">Acción</span></div></div>
+        <div class="game"><div class="icon">🌲</div><h3>99 Nights Forest</h3><p>Sobrevive noches</p><div class="tags"><span class="tag">Supervivencia</span></div></div>
+        <div class="game"><div class="icon">🥊</div><h3>Flip Duel</h3><p>Duelos acrobáticos</p><div class="tags"><span class="tag">Arcade</span></div></div>
+        <div class="game"><div class="icon">🎯</div><h3>Kick The Buddy</h3><p>Sandbox de diversión</p><div class="tags"><span class="tag">Casual</span></div></div>
+        <div class="game"><div class="icon">🧱</div><h3>Blockader</h3><p>Estrategia de bloques</p><div class="tags"><span class="tag">Puzzle</span></div></div>
+        <div class="game"><div class="icon">👁️</div><h3>Don't Look Sun</h3><p>Horror psicológico</p><div class="tags"><span class="tag">Horror</span></div></div>
+        <div class="game"><div class="icon">🏃</div><h3>Turball.io</h3><p>Ball.io multijugador</p><div class="tags"><span class="tag">Arcade</span></div></div>
+        <div class="game"><div class="icon">🎮</div><h3>Retakes.io</h3><p>Táctico multijugador</p><div class="tags"><span class="tag">Estrategia</span></div></div>
+        <div class="game"><div class="icon">🚴</div><h3>Bike Bros</h3><p>Hermanos en bici</p><div class="tags"><span class="tag">Carreras</span></div></div>
+        <div class="game"><div class="icon">🔎</div><h3>Find the Needle</h3><p>Busca la aguja</p><div class="tags"><span class="tag">Puzzle</span></div></div>
+        <div class="game"><div class="icon">🌻</div><h3>Tiny Garden War</h3><p>Guerra en jardín</p><div class="tags"><span class="tag">Estrategia</span></div></div>
+        <div class="game"><div class="icon">🎭</div><h3>Scam Artist</h3><p>Estafador profesional</p><div class="tags"><span class="tag">Simulación</span></div></div>
+        <div class="game"><div class="icon">🎣</div><h3>How To Fish</h3><p>Tutorial pesca</p><div class="tags"><span class="tag">Simulación</span></div></div>
+        <div class="game"><div class="icon">⚔️</div><h3>Real War Not Fake</h3><p>Guerra real</p><div class="tags"><span class="tag">Estrategia</span></div></div>
+        <div class="game"><div class="icon">🔨</div><h3>Whack Your Boss</h3><p>Golpea al jefe</p><div class="tags"><span class="tag">Casual</span></div></div>
+        <div class="game"><div class="icon">💔</div><h3>Whack Your Ex</h3><p>Catarsis divertida</p><div class="tags"><span class="tag">Casual</span></div></div>
+        <div class="game"><div class="icon">🎨</div><h3>Draw Crash Race</h3><p>Dibuja y corre</p><div class="tags"><span class="tag">Carreras</span></div></div>
+        <div class="game"><div class="icon">👨‍👧</div><h3>Who's Your Daddy?</h3><p>Padre vs bebé</p><div class="tags"><span class="tag">Simulación</span></div></div>
+        <div class="game"><div class="icon">🚴‍♂️</div><h3>Stunt Bike Racing</h3><p>Carreras acrobacias</p><div class="tags"><span class="tag">Carreras</span></div></div>
+        <div class="game"><div class="icon">🌊</div><h3>Wave Race</h3><p>Carrera de olas</p><div class="tags"><span class="tag">Carreras</span></div></div>
+        <div class="game"><div class="icon">🏒</div><h3>Hockey Bros</h3><p>Hermanos hockey</p><div class="tags"><span class="tag">Deportes</span></div></div>
+        <div class="game"><div class="icon">⭐</div><h3>BitLife</h3><p>Simulador de vida</p><div class="tags"><span class="tag">Simulación</span></div></div>
+        <div class="game"><div class="icon">🎮</div><h3>Brawl Stars</h3><p>Batalla multijugador</p><div class="tags"><span class="tag">Acción</span></div></div>
+        <div class="game"><div class="icon">🎰</div><h3>E-Life Simulation</h3><p>Vida electrónica</p><div class="tags"><span class="tag">Simulación</span></div></div>
+        <div class="game"><div class="icon">🧠</div><h3>Steal Brainrot Online</h3><p>Online caótico</p><div class="tags"><span class="tag">Casual</span></div></div>
+        <div class="game"><div class="icon">🏚️</div><h3>Destroy House</h3><p>Destruye casas</p><div class="tags"><span class="tag">Casual</span></div></div>
+        <div class="game"><div class="icon">🔫</div><h3>Call of Duty Browser</h3><p>Shooter intenso</p><div class="tags"><span class="tag">Disparos</span></div></div>
+        <div class="game"><div class="icon">🎮</div><h3>Clash Royale Browser</h3><p>Estrategia tiempo real</p><div class="tags"><span class="tag">Estrategia</span></div></div>
+        <div class="game"><div class="icon">🌀</div><h3>Slope</h3><p>Bola rodante</p><div class="tags"><span class="tag">Arcade</span></div></div>
+        <div class="game"><div class="icon">📱</div><h3>Hyper Wave Trial</h3><p>Ondas hipérboles</p><div class="tags"><span class="tag">Arcade</span></div></div>
+        <div class="game"><div class="icon">🎨</div><h3>Paint Hide Seek</h3><p>Pintar y esconderse</p><div class="tags"><span class="tag">Casual</span></div></div>
+        <div class="game"><div class="icon">🦎</div><h3>Meccha Chameleon</h3><p>Camaleón robot</p><div class="tags"><span class="tag">Acción</span></div></div>
+        <div class="game"><div class="icon">🌑</div><h3>Backrooms Escape</h3><p>Escapa laberintos</p><div class="tags"><span class="tag">Horror</span></div></div>
+        <div class="game"><div class="icon">🏘️</div><h3>Brookhaven RP</h3><p>Simulación de vida</p><div class="tags"><span class="tag">Simulación</span></div></div>
+        <div class="game"><div class="icon">🗺️</div><h3>GeoGuessr</h3><p>Adivina ubicación</p><div class="tags"><span class="tag">Puzzle</span></div></div>
+        <div class="game"><div class="icon">🚀</div><h3>Crashy Rush</h3><p>Carreras caóticas</p><div class="tags"><span class="tag">Carreras</span></div></div>
+        <div class="game"><div class="icon">👻</div><h3>Five Nights Epstein's</h3><p>Horror nocturno</p><div class="tags"><span class="tag">Horror</span></div></div>
+        <div class="game"><div class="icon">🏍️</div><h3>Enduro Cross Motorsport</h3><p>Motos extremas</p><div class="tags"><span class="tag">Carreras</span></div></div>
+        <div class="game"><div class="icon">📍</div><h3>Flip Spot</h3><p>Encuentra lugares</p><div class="tags"><span class="tag">Casual</span></div></div>
+      </div>
+    </div></section>
   </main>
-  <footer><div class="container">© 2026 Lucas Rules — Catálogo de juegos casuales. Los nombres y marcas pertenecen a sus respectivos propietarios.</div></footer>
+
+  <footer><div class="container">
+    <p>© 2026 Lucas Rules — Catálogo de juegos. Todos los nombres y marcas pertenecen a sus propietarios.</p>
+    <p style="color:var(--muted); font-size:.85rem; margin-top:.8rem;">Más de 100 juegos de GN Math, GN Maths y TopGames.gg. Haz clic en los enlaces para jugar directamente en tu navegador.</p>
+  </div></footer>
 </body>
 </html>
