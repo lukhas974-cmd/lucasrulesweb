@@ -1,0 +1,145 @@
+# .htaccess - Apache Security Configuration
+# Comprehensive firewall rules for Lucas Rules Web
+
+# Enable mod_rewrite
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Redirect HTTP to HTTPS
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    
+    # Prevent directory traversal
+    RewriteCond %{REQUEST_URI} \.\. [NC]
+    RewriteRule ^ - [F]
+    
+    # Block suspicious user agents
+    RewriteCond %{HTTP_USER_AGENT} (bot|crawler|spider|curl|wget|scanner) [NC]
+    RewriteRule ^ - [F]
+</IfModule>
+
+# Security Headers
+<IfModule mod_headers.c>
+    # Prevent clickjacking
+    Header always set X-Frame-Options "DENY"
+    
+    # Prevent MIME type sniffing
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # XSS Protection
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # HSTS - Force HTTPS
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    
+    # Content Security Policy
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self';"
+    
+    # Referrer Policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Permissions Policy
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
+    
+    # Remove server information
+    Header always unset Server
+    Header always unset X-Powered-By
+    Header always unset X-AspNet-Version
+</IfModule>
+
+# Disable directory listing
+<IfModule mod_autoindex.c>
+    Options -Indexes
+</IfModule>
+
+# Protect sensitive files
+<FilesMatch "^\.">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+</FilesMatch>
+
+<FilesMatch "\.(env|md|json|lock)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+</FilesMatch>
+
+# Block access to version control
+<DirectoryMatch "\.git">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+</DirectoryMatch>
+
+# SQL Injection Protection
+<IfModule mod_rewrite.c>
+    RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(>|%3E) [NC,OR]
+    RewriteCond %{QUERY_STRING} UNION.*SELECT [NC,OR]
+    RewriteCond %{QUERY_STRING} union.*from [NC]
+    RewriteRule ^ - [F]
+</IfModule>
+
+# XSS Protection via query string
+<IfModule mod_rewrite.c>
+    RewriteCond %{QUERY_STRING} (<|%3C).*script.*(>|%3E) [NC,OR]
+    RewriteCond %{QUERY_STRING} javascript: [NC,OR]
+    RewriteCond %{QUERY_STRING} onerror= [NC,OR]
+    RewriteCond %{QUERY_STRING} onclick= [NC]
+    RewriteRule ^ - [F]
+</IfModule>
+
+# Disable PHP execution in upload directories
+<Directory uploads>
+    php_flag engine off
+    <FilesMatch "\.php$">
+        <IfModule mod_authz_core.c>
+            Require all denied
+        </IfModule>
+    </FilesMatch>
+</Directory>
+
+# File upload restrictions
+<FilesMatch "\.(jpg|jpeg|png|gif|pdf|doc|docx)$">
+    Header set Content-Disposition "attachment"
+</FilesMatch>
+
+# Caching Security
+<IfModule mod_headers.c>
+    Header set Cache-Control "public, max-age=3600"
+    Header set Pragma "public"
+    
+    # Never cache sensitive pages
+    <LocationMatch "^/admin|^/api/secret">
+        Header set Cache-Control "private, no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </LocationMatch>
+</IfModule>
+
+# Compression (reduces attack surface)
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Disable Trace/Track methods
+<IfModule mod_rewrite.c>
+    RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK) [NC]
+    RewriteRule ^ - [F]
+</IfModule>
+
+# Rate limiting (basic, use Cloudflare for advanced)
+<IfModule mod_ratelimit.c>
+    <Location />
+        SetOutputFilter RATE_LIMIT
+        # 1000 KB/s per connection
+        LimitRequestBody 1024000
+    </Location>
+</IfModule>
+
+# Disable unsafe HTTP methods
+<Limit PUT DELETE>
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+</Limit>
