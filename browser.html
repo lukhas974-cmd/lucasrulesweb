@@ -14,7 +14,8 @@
     nav { display:flex; justify-content:space-between; align-items:center; }
     .brand { font-weight:800; letter-spacing:.08em; text-transform:uppercase; font-size:1.2rem; }
     .brand span { color:var(--accent); }
-    .back { color:var(--muted); font-size:.9rem; }
+    .back { color:var(--muted); font-size:.9rem; cursor:pointer; }
+    .back:hover { color:var(--text); }
     main { display:flex; flex-direction:column; height:calc(100vh - 80px); padding:2rem 0; }
     .hero { text-align:center; }
     .eyebrow { color:var(--accent); text-transform:uppercase; letter-spacing:.08em; font-size:.78rem; font-weight:700; }
@@ -24,7 +25,7 @@
     .search-box { display:flex; gap:.8rem; max-width:700px; margin:0 auto; width:100%; }
     .search-input { flex:1; padding:1rem 1.5rem; border:1px solid #ffffff20; border-radius:50px; background:#ffffff0d; color:var(--text); font-size:1.1rem; outline:none; transition:all .3s; }
     .search-input:focus { border-color:var(--accent); box-shadow:0 0 20px rgba(126,240,199,.2); }
-    .search-btn { padding:1rem 2rem; background:linear-gradient(135deg,var(--primary),var(--primary-strong)); color:white; border:none; border-radius:50px; font-weight:700; cursor:pointer; font-size:1rem; transition:all .2s; }
+    .search-btn { padding:1rem 2rem; background:linear-gradient(135deg,var(--primary),#4f7cff); color:white; border:none; border-radius:50px; font-weight:700; cursor:pointer; font-size:1rem; transition:all .2s; }
     .search-btn:hover { transform:translateY(-2px); box-shadow:0 10px 25px rgba(79,124,255,.3); }
     .privacy-notice { background:rgba(126,240,199,.08); border:1px solid rgba(126,240,199,.2); border-radius:16px; padding:1.5rem; margin-top:2rem; text-align:left; max-width:700px; margin-left:auto; margin-right:auto; }
     .privacy-notice h3 { color:var(--accent); margin:0 0 .8rem; font-size:1.05rem; }
@@ -38,14 +39,23 @@
     .duckduckgo-credit a { color:var(--accent); transition:color .2s; }
     .duckduckgo-credit a:hover { color:#ffffff; }
     footer { padding:2rem 0; text-align:center; color:var(--muted); font-size:.9rem; border-top:1px solid #ffffff12; }
+    
+    /* Iframe styles */
+    .iframe-container { display:none; flex-direction:column; gap:1rem; flex-grow:1; width:100%; }
+    .iframe-container.active { display:flex; }
+    .iframe-header { display:flex; align-items:center; gap:1rem; padding:0 0 1rem; border-bottom:1px solid #ffffff18; }
+    .back-btn { padding:.5rem 1rem; background:rgba(126,240,199,.1); border:1px solid rgba(126,240,199,.2); border-radius:8px; color:var(--accent); cursor:pointer; font-weight:600; transition:all .2s; }
+    .back-btn:hover { background:rgba(126,240,199,.2); }
+    iframe { flex:1; border:1px solid #ffffff18; border-radius:12px; background:#0b1020; }
+    
     @media (max-width:768px) { h1 { font-size:1.8rem; } .search-box { flex-direction:column; } }
   </style>
 </head>
 <body>
-  <header><div class="container"><nav><a class="brand" href="index.html">Lucas<span>Rules</span></a><a class="back" href="index.html">← Volver</a></nav></div></header>
+  <header><div class="container"><nav><a class="brand" href="index.html">Lucas<span>Rules</span></a><a class="back" onclick="goBack()">← Volver</a></nav></div></header>
   
   <main>
-    <div class="container search-wrapper">
+    <div class="container search-wrapper" id="searchView">
       <div class="hero">
         <span class="eyebrow">🔍 Navegador Privado</span>
         <h1>Busca con Privacidad</h1>
@@ -94,6 +104,16 @@
         <p>Más información: <a href="https://duckduckgo.com/about" target="_blank">Sobre DuckDuckGo</a></p>
       </div>
     </div>
+
+    <!-- Iframe Results View -->
+    <div class="iframe-container" id="iframeView">
+      <div class="iframe-header">
+        <button class="back-btn" onclick="backToSearch()">← Atrás</button>
+        <input type="text" class="search-input" id="searchInputFrame" placeholder="Busca algo en DuckDuckGo..." style="margin:0; flex:1;">
+        <button class="search-btn" onclick="performSearch()" style="padding:0.7rem 1.5rem;">Buscar</button>
+      </div>
+      <iframe id="resultsFrame" src="" sandbox="allow-same-origin allow-scripts allow-popups allow-forms" allow="geolocation; microphone; camera"></iframe>
+    </div>
   </main>
 
   <footer><div class="container">
@@ -102,17 +122,42 @@
 
   <script>
     function performSearch() {
-      const query = document.getElementById('searchInput').value.trim();
+      const input = document.getElementById('searchInput').value || document.getElementById('searchInputFrame').value;
+      const query = input.trim();
+      
       if (query) {
         const duckduckgoUrl = `https://duckduckgo.com/?q=${encodeURIComponent(query)}`;
-        window.open(duckduckgoUrl, '_blank');
+        
+        // Show iframe view and hide search view
+        document.getElementById('searchView').style.display = 'none';
+        document.getElementById('iframeView').classList.add('active');
+        
+        // Load results in iframe
+        document.getElementById('resultsFrame').src = duckduckgoUrl;
+        
+        // Update search field in frame header
+        document.getElementById('searchInputFrame').value = query;
       }
     }
 
+    function backToSearch() {
+      document.getElementById('searchView').style.display = 'flex';
+      document.getElementById('iframeView').classList.remove('active');
+      document.getElementById('resultsFrame').src = '';
+      document.getElementById('searchInput').focus();
+    }
+
+    function goBack() {
+      window.location.href = 'index.html';
+    }
+
+    // Search on Enter key
     document.getElementById('searchInput').addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        performSearch();
-      }
+      if (e.key === 'Enter') performSearch();
+    });
+
+    document.getElementById('searchInputFrame').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') performSearch();
     });
   </script>
 </body>
